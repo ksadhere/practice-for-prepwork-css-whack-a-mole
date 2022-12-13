@@ -6,11 +6,15 @@ let clickable = false;
 
 function popUpRandomMole() {
   if (molesLeft <= 0) {
-    document.querySelector('.sb__game-over').classList.remove('sb__game-over--hidden');
+    document
+      .querySelector('.sb__game-over')
+      .classList.remove('sb__game-over--hidden');
     return;
   }
 
-  const moleHeads = document.querySelectorAll('.wgs__mole-head:not(.wgs__mole-head--whacked)');
+  const moleHeads = document.querySelectorAll(
+    '.wgs__mole-head:not(.wgs__mole-head--whacked)'
+  );
   if (moleHeads.length === 0) {
     return;
   }
@@ -38,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const moleHeads = document.querySelectorAll('.wgs__mole-head');
   for (let moleHead of moleHeads) {
-    moleHead.addEventListener('click', event => {
+    moleHead.addEventListener('click', (event) => {
       if (!clickable) return;
 
       score += 1;
@@ -49,10 +53,10 @@ window.addEventListener('DOMContentLoaded', () => {
       hideMole(event.target);
 
       // UNCOMMENT THIS LINE OF CODE WHEN DIRECTED
-      // event.target.classList.add('wgs__mole-head--hidden');
+      event.target.classList.add('wgs__mole-head--hidden');
 
       // UNCOMMENT THIS LINE OF CODE WHEN DIRECTED FOR THE BONUS
-      // event.target.classList.add('wgs__mole-head--whacked');
+      event.target.classList.add('wgs__mole-head--whacked');
     });
   }
 });
